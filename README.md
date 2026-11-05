@@ -55,9 +55,9 @@ decides that.
 
 ```bash
 pip install -r requirements.txt
-python -m pytest -q                       # 12 tests, a few seconds
+python -m pytest -q                       # 19 tests, under a minute
 python scripts/run_experiment.py          # about 1-2 minutes on a laptop CPU
-streamlit run app.py                      # the demo
+streamlit run app.py                      # the demo: a city map, then why one home got its price
 ```
 
 ### On Google Colab or Kaggle (GPU)
@@ -92,9 +92,11 @@ needs coordinates from an address dataset such as G-NAF. Check each dataset's li
 | `comps/model.py` | The GNN: adjusted messages plus attention |
 | `comps/evaluate.py` | Baselines, metrics, conformal intervals |
 | `comps/train.py` | Training with early stopping on validation |
+| `comps/explain.py` | Map colours by accuracy, and lines to comparables |
 | `scripts/run_experiment.py` | Runs everything, writes `outputs/` |
 | `app.py` | Streamlit demo |
 | `tests/test_honesty.py` | Leakage, graph, model and metric tests |
+| `tests/test_explain.py` | The map's colours and lines match the data |
 
 ## Next steps
 

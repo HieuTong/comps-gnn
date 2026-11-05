@@ -11,6 +11,10 @@ import sys
 import time
 from pathlib import Path
 
+# LightGBM MUST be imported before PyTorch. Each ships its own OpenMP (the library for
+# using several CPU cores), and on macOS loading PyTorch's first and then running
+# LightGBM crashes the process with a segmentation fault. Loading LightGBM's first works.
+import lightgbm  # noqa: F401  (imported for its side effect: load order)
 import numpy as np
 import pandas as pd
 import torch
